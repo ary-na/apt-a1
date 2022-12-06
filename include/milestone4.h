@@ -1,12 +1,12 @@
 /*
  * This function is to help you dynamically allocate
- *  memory for a generic 2D Environemnt.
+ *  memory for a generic 2D Environment.
  */
 Env make_env(const int rows, const int cols) {
     Env env = nullptr;
 
     if (rows >= 0 && cols >= 0) {
-        env = new char*[rows];
+        env = new char *[rows];
         for (int i = 0; i != rows; ++i) {
             env[i] = new char[cols];
         }

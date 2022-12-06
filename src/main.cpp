@@ -3,10 +3,10 @@
 #include <stdexcept>
 #include <string>
 
-#include "Types.h"
-#include "Node.h"
-#include "NodeList.h"
-#include "PathSolver.h"
+#include "../include/Types.h"
+#include "../include/Node.h"
+#include "../include/NodeList.h"
+#include "../include/PathSolver.h"
 
 // Helper test functions
 void testNode();

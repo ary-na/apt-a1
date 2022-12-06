@@ -1,11 +1,11 @@
 #ifndef COSC_ASSIGN_ONE_TYPES
 #define COSC_ASSIGN_ONE_TYPES
 
-#include <math.h>
+#include <cmath>
 
 
 #define ENV_DIM                     20
-#define NODE_LIST_ARRAY_MAX_SIZE    4*(ENV_DIM * ENV_DIM)
+#define NODE_LIST_ARRAY_MAX_SIZE    (4*(ENV_DIM * ENV_DIM))
 
 // A 2D array to represent the environment or observations
 // REMEMBER: in a environment, the location (x,y) is found by maze[y][x]!

@@ -3,28 +3,30 @@
 
 #include "Types.h"
 
-class Node{
+class Node {
 public:
     /*                                           */
-    /* DO NOT MOFIFY ANY CODE IN THIS SECTION    */
+    /* DO NOT MODIFY ANY CODE IN THIS SECTION    */
     /*                                           */
 
-    // Constructor/Desctructor
+    // Constructor/Destructor
     Node(int row, int col, int dist_traveled);
+
     ~Node();
 
-    // get row-coodinate of the node
+    // get row-coordinate of the node
     int getRow();
 
-    // get column-coodinate of the node
+    // get column-coordinate of the node
     int getCol();
 
     //getter and setter for distance traveled
     int getDistanceTraveled();
+
     void setDistanceTraveled(int dist_traveled);
 
-    //getter for estimated dist to goal - need to return -> Manhatten distance + distance traveled
-    int getEstimatedDist2Goal(Node* goal);
+    //getter for estimated dist to goal - need to return -> Manhattan distance + distance traveled
+    int getEstimatedDist2Goal(Node *goal);
 
     /*                                           */
     /* YOU MAY ADD YOUR MODIFICATIONS HERE       */
@@ -33,7 +35,7 @@ public:
 
 private:
     /*                                           */
-    /* DO NOT MOFIFY THESE VARIABLES             */
+    /* DO NOT MODIFY THESE VARIABLES             */
     /*                                           */
 
     int row;
