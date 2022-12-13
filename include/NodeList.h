@@ -20,7 +20,7 @@ public:
     NodeList(NodeList &other);
 
     // Number of elements in the NodeList
-    int getLength();
+    int getLength() const;
 
     // Add a COPY node element to the BACK of the nodelist.
     void addElement(Node *newNode);
@@ -41,7 +41,7 @@ private:
 
     // NodeList: list of node objects
     // You may assume a fixed size for M1, M2, M3
-    Node *nodes[NODE_LIST_ARRAY_MAX_SIZE];
+    Node *nodes[NODE_LIST_ARRAY_MAX_SIZE]{};
 
     // Number of nodes currently in the NodeList
     int length;
