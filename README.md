@@ -22,3 +22,6 @@ https://social.msdn.microsoft.com/Forums/vstudio/en-US/d22c9dec-baac-4cc5-870b-d
 
 https://iq.opengenus.org/different-ways-to-initialize-array-in-cpp/
 
+
+https://intellij-support.jetbrains.com/hc/en-us/community/posts/206020944-What-should-I-gitignore-Can-I-gitignore-cmake-build-debug-
+
