@@ -13,10 +13,10 @@ void testNode();
 
 void testNodeList();
 
-// Read a environment from standard input.
+// Read an environment from standard input.
 void readEnvStdin(Env env);
 
-// Print out a Environment to standard output with path.
+// Print out an Environment to standard output with path.
 // To be implemented for Milestone 3
 void printEnvStdout(Env env, NodeList *solution);
 
@@ -35,9 +35,38 @@ int main(int argc, char **argv) {
     Env env;
     readEnvStdin(env);
 
+
+    int startLocationCol, startLocationRow, goalLocationCol, goalLocationRow;
+
+    // Get input for Start location
+    std::cout << "Enter robot's start location column number:" << std::endl;
+    std::cin >> startLocationCol;
+
+    std::cout << "Enter robot's start location row number:" << std::endl;
+    std::cin >> startLocationRow;
+
+    // Get input for Goal location
+    std::cout << "Enter robot's goal location column number:" << std::endl;
+    std::cin >> goalLocationCol;
+
+    std::cout << "Enter robot's goal location row number:" << std::endl;
+    std::cin >> goalLocationRow;
+
+
     // Solve using forwardSearch
     // THIS WILL ONLY WORK IF YOU'VE FINISHED MILESTONE 2
-    PathSolver *pathSolver = new PathSolver();
+    auto *pathSolver = new PathSolver();
+
+    // Create Start and Goal node locations
+    auto *startNode = new Node(5, 1, 0);
+    auto *goalNode = new Node(11, 5, 0);
+
+    // Set Start location
+    pathSolver->setStartNode(startNode);
+
+    // Set Goal location
+    pathSolver->setGoalNode(goalNode);
+
     pathSolver->forwardSearch(env);
 
     NodeList *exploredPositions = nullptr;
@@ -49,6 +78,8 @@ int main(int argc, char **argv) {
 
     printEnvStdout(env, solution);
 
+    delete startNode;
+    delete goalNode;
     delete pathSolver;
     delete exploredPositions;
     delete solution;

@@ -18,7 +18,7 @@ public:
 
     // Execute forward search algorithm
     // To be implemented for Milestone 2
-    void forwardSearch(Env env);
+    void forwardSearch(Env env) const;
 
     // Get a DEEP COPY of the explored NodeList in forward search
     // To be implemented for Milestone 2
@@ -33,18 +33,29 @@ public:
     /* YOU MAY ADD YOUR MODIFICATIONS HERE       */
     /*                                           */
 
+
+
+    Node *getStartNode() const;
+
+    void setStartNode(Node *startNode);
+
+    Node *getGoalNode() const;
+
+    void setGoalNode(Node *goalNode);
+
 private:
     /*                                           */
     /* DO NOT MODIFY THESE VARIABLES             */
     /*                                           */
 
     // Nodes explored in forward search algorithm
-    NodeList *nodesExplored;
+    NodeList *nodes_explored;
 
     /*                                           */
     /* YOU MAY ADD YOUR MODIFICATIONS HERE       */
     /*                                           */
-
+    Node *start_node;
+    Node *goal_node;
 };
 
 
