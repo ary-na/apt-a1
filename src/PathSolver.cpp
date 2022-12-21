@@ -35,7 +35,7 @@ void PathSolver::forwardSearch(Env env) {
 
         for (int i = 0; i < p->getLength(); i++) {
             int estimatedDistance = p->getNode(i)->getEstimatedDist2Goal(goalNode);
-            if (estimatedDistance < smallestEstimatedDistance && nodeExists(c, p->getNode(i))) {
+            if (estimatedDistance <= smallestEstimatedDistance && !nodeExists(c, p->getNode(i))) {
                 smallestEstimatedDistance = estimatedDistance;
                 selected_node = p->getNode(i);
             }
@@ -51,7 +51,6 @@ void PathSolver::forwardSearch(Env env) {
                 auto *node = new Node(q[i], q[i + 1], selected_node->getDistanceTraveled() + 1);
                 if (!nodeExists(p, node)) {
                     p->addElement(node);
-                    delete node;
                 }
             }
         }
@@ -60,6 +59,9 @@ void PathSolver::forwardSearch(Env env) {
 
     } while (selected_node->getRow() != goalNode->getRow() && selected_node->getCol() != goalNode->getCol());
 
+    for(int i = 0; i < c->getLength(); i++){
+        std::cout << c[i].getNode(i) << std::endl;
+    }
 
 }
 

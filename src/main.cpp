@@ -34,7 +34,7 @@ int main(int argc, char **argv) {
     std::cout << "DONE TESTING" << std::endl << std::endl;
 
     // Load Environment
-    Env env {};
+    Env env{};
     readEnvStdin(env);
 
 
@@ -57,56 +57,39 @@ int main(int argc, char **argv) {
 
     // Solve using forwardSearch
     // THIS WILL ONLY WORK IF YOU'VE FINISHED MILESTONE 2
-    //auto *pathSolver = new PathSolver();
+    auto *pathSolver = new PathSolver();
 
-    //pathSolver->forwardSearch(env);
+    pathSolver->forwardSearch(env);
 
-//    NodeList *exploredPositions = nullptr;
-//    exploredPositions = pathSolver->getNodesExplored();
+    NodeList *exploredPositions = nullptr;
+    exploredPositions = pathSolver->getNodesExplored();
 
     // Get the path
     // THIS WILL ONLY WORK IF YOU'VE FINISHED MILESTONE 3
-    //NodeList *solution = pathSolver->getPath(env);
+    NodeList *solution = pathSolver->getPath(env);
 
-    //printEnvStdout(env, solution);
+    printEnvStdout(env, solution);
 
-//    delete pathSolver;
-//    delete exploredPositions;
-//    delete solution;
+    delete pathSolver;
+    delete exploredPositions;
+    delete solution;
 
 }
 
 void readEnvStdin(Env env) {
-    std::cout << env[0][0];
-
     for (int i = 0; i < ENV_DIM; i++) {
         for (int j = 0; j < ENV_DIM; j++)
-            getCharacter(&env[i][j]);
+            std::cin >> env[i][j];
     }
     for (int i = 0; i < ENV_DIM; i++) {
         for (int j = 0; j < ENV_DIM; j++)
             std::cout << env[i][j];
         std::cout << std::endl;
     }
-
 }
 
 void printEnvStdout(Env env, NodeList *solution) {
-    for (int i = 0; i < ENV_DIM; i++) {
-        for (int j = 0; j < ENV_DIM; j++)
-            std::cout << env[i][j];
-        std::cout << std::endl;
-    }
-}
 
-bool getCharacter(char *c) {
-    std::cin >> *c;
-
-    if (std::cin.eof()) {
-        return true;
-    } else {
-        return false;
-    }
 }
 
 void testNode() {

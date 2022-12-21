@@ -6,20 +6,21 @@ NodeList::NodeList() {
 }
 
 NodeList::~NodeList() {
-        delete [] *nodes;
+    delete[] *nodes;
 }
 
 NodeList::NodeList(NodeList &other) {
     this->length = other.length;
-    for(int i = 0; i <= other.length; i++) this->nodes[i] = other.nodes[i];
+    for (int i = 0; i <= other.length; i++) this->nodes[i] = other.nodes[i];
 }
 
-int NodeList::getLength() const {
-    return this->length;
+int NodeList::getLength() {
+    return length;
 }
 
 void NodeList::addElement(Node *newPos) {
-    this->nodes[this->getLength() + 1] = newPos;
+    this->nodes[this->getLength()] = newPos;
+    this->length++;
 }
 
 Node *NodeList::getNode(int i) {
