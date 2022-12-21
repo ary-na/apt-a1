@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 #include "../include/PathSolver.h"
 
 PathSolver::PathSolver() {
@@ -9,22 +10,55 @@ PathSolver::~PathSolver() {
     // TODO
 }
 
-void PathSolver::forwardSearch(Env env) const {
+void PathSolver::forwardSearch(Env env) {
 
+    // Start location
+    auto startLocation = env[5][1];
+    auto *startNode = new Node(5, 1, 0);
 
+    // Goal location
+    auto goalLocation = env[11][5];
+    auto *goalNode = new Node(11, 5, 0);
 
+    // Open list
+    auto *p = new NodeList;
 
-    auto *p = new NodeList();
+    // Closed list
+    auto *c = new NodeList;
+
     // Add Pointer to start node to the list
-    p->addElement(this->getStartNode());
+    p->addElement(startNode);
+    auto selected_node = p->getNode(0);
 
-    do{
+    do {
+        int smallestEstimatedDistance = selected_node->getEstimatedDist2Goal(goalNode);
+
         for (int i = 0; i < p->getLength(); i++) {
-            int estimatedDistance = p->getNode(i)->getEstimatedDist2Goal(this->getGoalNode());
-            p->getNode(i)->getRow()+1;
+            int estimatedDistance = p->getNode(i)->getEstimatedDist2Goal(goalNode);
+            if (estimatedDistance < smallestEstimatedDistance && nodeExists(c, p->getNode(i))) {
+                smallestEstimatedDistance = estimatedDistance;
+                selected_node = p->getNode(i);
+            }
         }
-    }
-    while(p->getNode(p->getLength()) != this->getGoalNode());
+
+        int row = selected_node->getRow();
+        int col = selected_node->getCol();
+
+        int q[] = {row - 1, col, row + 1, col, row, col - 1, row, col + 1};
+
+        for (int i = 0; i < 8; i = i + 2) {
+            if (env[q[i]][q[i + 1]] == SYMBOL_EMPTY) {
+                auto *node = new Node(q[i], q[i + 1], selected_node->getDistanceTraveled() + 1);
+                if (!nodeExists(p, node)) {
+                    p->addElement(node);
+                    delete node;
+                }
+            }
+        }
+
+        c->addElement(selected_node);
+
+    } while (selected_node->getRow() != goalNode->getRow() && selected_node->getCol() != goalNode->getCol());
 
 
 }
@@ -37,20 +71,12 @@ NodeList *PathSolver::getPath(Env env) {
     // TODO
 }
 
-Node *PathSolver::getStartNode() const {
-    return start_node;
-}
-
-void PathSolver::setStartNode(Node *startNode) {
-    start_node = startNode;
-}
-
-Node *PathSolver::getGoalNode() const {
-    return goal_node;
-}
-
-void PathSolver::setGoalNode(Node *goalNode) {
-    goal_node = goalNode;
+bool PathSolver::nodeExists(NodeList *nodeList, Node *node) {
+    for (int i = 0; i < nodeList->getLength(); i++) {
+        if (nodeList->getNode(i) == node)
+            return true;
+    }
+    return false;
 }
 
 //-----------------------------
