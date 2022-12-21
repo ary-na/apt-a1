@@ -25,3 +25,17 @@ https://iq.opengenus.org/different-ways-to-initialize-array-in-cpp/
 
 https://intellij-support.jetbrains.com/hc/en-us/community/posts/206020944-What-should-I-gitignore-Can-I-gitignore-cmake-build-debug-
 
+https://devenum.com/how-to-insert-an-element-in-array-in-c/
+
+https://www.educba.com/c-plus-plus-absolute-value/
+
+https://stackoverflow.com/questions/42813641/intellij-clion-what-should-i-do-to-use-input-text-file
+
+https://stackoverflow.com/questions/33599067/clion-command-line-program-arguments?noredirect=1&lq=1
+
+https://www.techiedelight.com/find-index-element-array-cpp/
+
+https://www.delftstack.com/howto/cpp/cpp-check-if-array-contains-an-element/#use-a-loop-to-check-if-an-array-contains-an-element-in-c
+
+https://stackoverflow.com/questions/22898070/for-loop-for-finding-smallest-element-in-an-array
+
