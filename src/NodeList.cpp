@@ -2,20 +2,24 @@
 #include "../include/NodeList.h"
 
 NodeList::NodeList() {
+    for (auto &node: nodes)
+        node = nullptr;
     this->length = 0;
 }
 
 NodeList::~NodeList() {
+    for (auto &node: nodes)
+        delete node;
     delete[] *nodes;
 }
 
 NodeList::NodeList(NodeList &other) {
+    for (int i = 0; i < this->length; i++) this->nodes[i] = new Node(*other.nodes[i]);
     this->length = other.length;
-    for (int i = 0; i <= other.length; i++) this->nodes[i] = other.nodes[i];
 }
 
-int NodeList::getLength() {
-    return length;
+int NodeList::getLength() const {
+    return this->length;
 }
 
 void NodeList::addElement(Node *newPos) {
@@ -24,5 +28,5 @@ void NodeList::addElement(Node *newPos) {
 }
 
 Node *NodeList::getNode(int i) {
-    return nodes[i];
+    return this->nodes[i];
 }

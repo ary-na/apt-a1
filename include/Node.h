@@ -15,18 +15,18 @@ public:
     ~Node();
 
     // get row-coordinate of the node
-    int getRow();
+    int getRow() const;
 
     // get column-coordinate of the node
-    int getCol();
+    int getCol() const;
 
     // getter and setter for distance traveled
-    int getDistanceTraveled();
+    int getDistanceTraveled() const;
 
     void setDistanceTraveled(int dist_traveled);
 
     // getter for estimated dist to goal - need to return -> Manhattan distance + distance traveled
-    int getEstimatedDist2Goal(Node *goal);
+    int getEstimatedDist2Goal(Node *goal) const;
 
     /*                                           */
     /* YOU MAY ADD YOUR MODIFICATIONS HERE       */

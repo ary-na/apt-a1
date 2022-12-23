@@ -3,11 +3,11 @@
 #include "../include/PathSolver.h"
 
 PathSolver::PathSolver() {
-    // TODO
+    this->nodes_explored = nullptr;
 }
 
 PathSolver::~PathSolver() {
-    // TODO
+    delete nodes_explored;
 }
 
 void PathSolver::forwardSearch(Env env) {
@@ -59,7 +59,7 @@ void PathSolver::forwardSearch(Env env) {
 
     } while (selected_node->getRow() != goalNode->getRow() && selected_node->getCol() != goalNode->getCol());
 
-    for(int i = 0; i < c->getLength(); i++){
+    for (int i = 0; i < c->getLength(); i++) {
         std::cout << c[i].getNode(i) << std::endl;
     }
 
