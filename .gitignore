@@ -1,1 +1,5 @@
-/src/cmake-build-debug
+/src/.cmake
+/src/CMakeFiles
+/src/Testing
+/src/s3910902
+/src/s3910902.cbp
