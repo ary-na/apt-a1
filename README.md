@@ -39,3 +39,13 @@ https://www.delftstack.com/howto/cpp/cpp-check-if-array-contains-an-element/#use
 
 https://stackoverflow.com/questions/22898070/for-loop-for-finding-smallest-element-in-an-array
 
+
+https://beginnersbook.com/2017/09/cpp-program-to-smallest-element-in-an-array/
+
+
+https://w3codeworld.com/article/154/cplusplus-program-to-find-the-largest-and-smallest-element-in-an-array-by-using-for-loop
+
+
+
+https://ai.plainenglish.io/using-forward-search-algorithms-to-solve-ai-planning-problems-361ad4910239
+
