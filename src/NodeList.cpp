@@ -23,7 +23,7 @@ int NodeList::getLength() const {
 }
 
 void NodeList::addElement(Node *newPos) {
-    this->nodes[this->getLength()] = newPos;
+    this->nodes[this->length] = newPos;
     this->length++;
 }
 

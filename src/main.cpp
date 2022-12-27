@@ -20,8 +20,6 @@ void readEnvStdin(Env env);
 // To be implemented for Milestone 3
 void printEnvStdout(Env env, NodeList *solution);
 
-bool getCharacter(char *c);
-
 
 int main(int argc, char **argv) {
     // THESE ARE SOME EXAMPLE FUNCTIONS TO HELP TEST YOUR CODE

@@ -13,56 +13,59 @@ PathSolver::~PathSolver() {
 void PathSolver::forwardSearch(Env env) {
 
     // Start location
-    auto startLocation = env[5][1];
+    std::cout << env[5][1] << std::endl;
     auto *startNode = new Node(5, 1, 0);
 
     // Goal location
-    auto goalLocation = env[11][5];
+    std::cout << env[11][5] << std::endl;
     auto *goalNode = new Node(11, 5, 0);
 
     // Open list
-    auto *p = new NodeList;
-
-    // Closed list
-    auto *c = new NodeList;
+    auto *P = new NodeList;
 
     // Add Pointer to start node to the list
-    p->addElement(startNode);
-    auto selected_node = p->getNode(0);
+    P->addElement(startNode);
+
+    // Closed list
+    auto *C = new NodeList;
+
+    Node *p = P->getNode(0);
 
     do {
-        int smallestEstimatedDistance = selected_node->getEstimatedDist2Goal(goalNode);
+        int pEstimatedDistance = p->getEstimatedDist2Goal(goalNode);
 
-        for (int i = 0; i < p->getLength(); i++) {
-            int estimatedDistance = p->getNode(i)->getEstimatedDist2Goal(goalNode);
-            if (estimatedDistance <= smallestEstimatedDistance && !nodeExists(c, p->getNode(i))) {
-                smallestEstimatedDistance = estimatedDistance;
-                selected_node = p->getNode(i);
-            }
-        }
+        for (int i = 0; i < P->getLength(); i++) {
+            int smallestEstimatedDistance = P->getNode(i)->getEstimatedDist2Goal(goalNode);
+            if (!nodeExists(C, P->getNode(i))) {
+                if (pEstimatedDistance >= smallestEstimatedDistance || smallestEstimatedDistance == 0) {
+                    p = P->getNode(i);
+                    pEstimatedDistance = smallestEstimatedDistance;
 
-        int row = selected_node->getRow();
-        int col = selected_node->getCol();
+                    int row = p->getRow();
+                    int col = p->getCol();
 
-        int q[] = {row - 1, col, row + 1, col, row, col - 1, row, col + 1};
+                    int q[] = {row - 1, col, row + 1, col, row, col - 1, row, col + 1};
 
-        for (int i = 0; i < 8; i = i + 2) {
-            if (env[q[i]][q[i + 1]] == SYMBOL_EMPTY) {
-                auto *node = new Node(q[i], q[i + 1], selected_node->getDistanceTraveled() + 1);
-                if (!nodeExists(p, node)) {
-                    p->addElement(node);
+                    for (int j = 0; j < 8; j = j + 2) {
+                        if (env[q[j]][q[j + 1]] != SYMBOL_WALL) {
+                            auto *node = new Node(q[j], q[j + 1], p->getDistanceTraveled() + 1);
+                            if (!nodeExists(P, node)) {
+                                P->addElement(node);
+                            }
+                        }
+                    }
+
+                    goalNode->setDistanceTraveled(p->getDistanceTraveled());
+                    C->addElement(p);
                 }
             }
         }
 
-        c->addElement(selected_node);
+    } while (p != goalNode);
 
-    } while (selected_node->getRow() != goalNode->getRow() && selected_node->getCol() != goalNode->getCol());
-
-    for (int i = 0; i < c->getLength(); i++) {
-        std::cout << c[i].getNode(i) << std::endl;
+    for (int i = 0; i < C->getLength(); i++) {
+        std::cout << C->getNode(i) << std::endl;
     }
-
 }
 
 NodeList *PathSolver::getNodesExplored() {
@@ -75,7 +78,7 @@ NodeList *PathSolver::getPath(Env env) {
 
 bool PathSolver::nodeExists(NodeList *nodeList, Node *node) {
     for (int i = 0; i < nodeList->getLength(); i++) {
-        if (nodeList->getNode(i) == node)
+        if (nodeList->getNode(i)->getRow() == node->getRow() && nodeList->getNode(i)->getCol() == node->getCol())
             return true;
     }
     return false;
