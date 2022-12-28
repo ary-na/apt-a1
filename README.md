@@ -63,3 +63,5 @@ https://www.tutorialspoint.com/cplusplus-program-to-find-the-smallest-element-am
 
 https://beginnersbook.com/2017/09/cpp-program-to-smallest-element-in-an-array/
 
+https://www.jetbrains.com/help/clion/set-up-a-git-repository.html#ignore-files
+
