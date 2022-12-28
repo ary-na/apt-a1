@@ -69,8 +69,8 @@ int main(int argc, char **argv) {
     printEnvStdout(env, solution);
 
     delete pathSolver;
-    delete exploredPositions;
-    delete solution;
+   // delete exploredPositions;
+    // delete solution;
 
 }
 

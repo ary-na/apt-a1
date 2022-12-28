@@ -14,11 +14,11 @@ void PathSolver::forwardSearch(Env env) {
 
     // Start location
     std::cout << env[5][1] << std::endl;
-    auto *startNode = new Node(5, 1, 0);
+    Node *startNode = new Node(5, 1, 0);
 
     // Goal location
     std::cout << env[11][5] << std::endl;
-    auto *goalNode = new Node(11, 5, 0);
+    Node *goalNode = new Node(11, 5, 0);
 
     // Open list
     auto *P = new NodeList;
@@ -31,40 +31,38 @@ void PathSolver::forwardSearch(Env env) {
 
     Node *p = P->getNode(0);
 
-    do {
-        int pEstimatedDistance = p->getEstimatedDist2Goal(goalNode);
-
+    while (!(p->getCol() == goalNode->getCol() && p->getRow() == goalNode->getRow())) {
+        int tempEstimatedDistance = INT32_MAX;
         for (int i = 0; i < P->getLength(); i++) {
-            int smallestEstimatedDistance = P->getNode(i)->getEstimatedDist2Goal(goalNode);
             if (!nodeExists(C, P->getNode(i))) {
-                if (pEstimatedDistance >= smallestEstimatedDistance || smallestEstimatedDistance == 0) {
+                int smallestEstimatedDistance = P->getNode(i)->getEstimatedDist2Goal(goalNode);
+                if (smallestEstimatedDistance <= tempEstimatedDistance) {
+                    tempEstimatedDistance = smallestEstimatedDistance;
                     p = P->getNode(i);
-                    pEstimatedDistance = smallestEstimatedDistance;
-
-                    int row = p->getRow();
-                    int col = p->getCol();
-
-                    int q[] = {row - 1, col, row + 1, col, row, col - 1, row, col + 1};
-
-                    for (int j = 0; j < 8; j = j + 2) {
-                        if (env[q[j]][q[j + 1]] != SYMBOL_WALL) {
-                            auto *node = new Node(q[j], q[j + 1], p->getDistanceTraveled() + 1);
-                            if (!nodeExists(P, node)) {
-                                P->addElement(node);
-                            }
-                        }
-                    }
-
-                    goalNode->setDistanceTraveled(p->getDistanceTraveled());
-                    C->addElement(p);
                 }
             }
         }
 
-    } while (p != goalNode);
+        int row = p->getRow();
+        int col = p->getCol();
 
-    for (int i = 0; i < C->getLength(); i++) {
-        std::cout << C->getNode(i) << std::endl;
+        int q[] = {row - 1, col, row + 1, col, row, col - 1, row, col + 1};
+
+        for (int j = 0; j < 8; j = j + 2) {
+            if (env[q[j]][q[j + 1]] != SYMBOL_WALL) {
+                auto *node = new Node(q[j], q[j + 1], p->getDistanceTraveled() + 1);
+                if (!nodeExists(P, node)) {
+                    P->addElement(node);
+                }
+            }
+        }
+
+        C->addElement(p);
+
+    }
+
+    for (int i = 0; i < P->getLength(); i++) {
+        std::cout << P->getNode(i)->getRow() << " | " << P->getNode(i)->getCol() << " | " << P->getNode(i)->getEstimatedDist2Goal(goalNode) << std::endl;
     }
 }
 
