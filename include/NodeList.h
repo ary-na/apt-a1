@@ -44,7 +44,7 @@ private:
     Node *nodes[NODE_LIST_ARRAY_MAX_SIZE]{};
 
     // Number of nodes currently in the NodeList
-    int length{};
+    int length;
 
     /*                                           */
     /* YOU MAY ADD YOUR MODIFICATIONS HERE       */

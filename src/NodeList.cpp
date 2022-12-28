@@ -10,7 +10,6 @@ NodeList::NodeList() {
 NodeList::~NodeList() {
     for (auto &node: nodes)
         delete node;
-    delete[] *nodes;
 }
 
 NodeList::NodeList(NodeList &other) {
