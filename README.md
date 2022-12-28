@@ -49,3 +49,13 @@ https://w3codeworld.com/article/154/cplusplus-program-to-find-the-largest-and-sm
 
 https://ai.plainenglish.io/using-forward-search-algorithms-to-solve-ai-planning-problems-361ad4910239
 
+
+
+https://www.geeksforgeeks.org/program-error-signals/
+
+https://www.geeksforgeeks.org/to-find-smallest-and-second-smallest-element-in-an-array/
+
+https://www.tutorialspoint.com/cplusplus-program-to-find-the-smallest-element-among-three-elements
+
+https://beginnersbook.com/2017/09/cpp-program-to-smallest-element-in-an-array/
+
