@@ -32,8 +32,6 @@ public:
     /* YOU MAY ADD YOUR MODIFICATIONS HERE       */
     /*                                           */
 
-
-
 private:
     /*                                           */
     /* DO NOT MODIFY THESE VARIABLES             */
@@ -41,8 +39,8 @@ private:
 
     // NodeList: list of node objects
     // You may assume a fixed size for M1, M2, M3
-    Node *nodes[NODE_LIST_ARRAY_MAX_SIZE]{};
-
+    // Node *nodes[NODE_LIST_ARRAY_MAX_SIZE]{};
+    Node **nodes{};
     // Number of nodes currently in the NodeList
     int length;
 

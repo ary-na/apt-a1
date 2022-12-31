@@ -1,3 +1,5 @@
+#include "Types.h"
+
 /*
  * This function is to help you dynamically allocate
  *  memory for a generic 2D Environment.
@@ -11,7 +13,6 @@ Env make_env(const int rows, const int cols) {
             env[i] = new char[cols];
         }
     }
-
     return env;
 }
 
@@ -26,6 +27,4 @@ void delete_env(Env env, int rows, int cols) {
         }
         delete env;
     }
-
-    return;
 }

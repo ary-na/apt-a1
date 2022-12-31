@@ -4,12 +4,15 @@
 #include <cmath>
 
 
-#define ENV_DIM                     60
-#define NODE_LIST_ARRAY_MAX_SIZE    (4*(ENV_DIM * ENV_DIM))
+// #define ENV_DIM                     20
+#define ROWS                        60
+#define COLS                        60
+#define NODE_LIST_ARRAY_MAX_SIZE    ROWS * COLS
 
 // A 2D array to represent the environment or observations
 // REMEMBER: in an environment, the location (x,y) is found by maze[y][x]!
-typedef char Env[ENV_DIM][ENV_DIM];
+//typedef char Env[ENV_DIM][ENV_DIM];
+typedef char **Env;
 
 #define SYMBOL_WALL     '='
 #define SYMBOL_EMPTY    '.'

@@ -7,6 +7,7 @@
 #include "../include/Node.h"
 #include "../include/NodeList.h"
 #include "../include/PathSolver.h"
+#include "../include/milestone4.h"
 
 // Helper test functions
 void testNode();
@@ -33,7 +34,7 @@ int main(int argc, char **argv) {
     //    std::cout << "DONE TESTING" << std::endl << std::endl;
 
     // Load Environment
-    Env env{};
+    Env env = make_env(ROWS, COLS);
     readEnvStdin(env);
 
     // Solve using forwardSearch
@@ -41,7 +42,7 @@ int main(int argc, char **argv) {
     auto *pathSolver = new PathSolver();
 
     // Set start and goal location Nodes
-    // To test a larger env modify ENV_DIM in Types.h file
+    // To test a different env modify ROWS and COLS in Types.h file
     pathSolver->getStartNode()->setRow(57);
     pathSolver->getStartNode()->setCol(54);
     pathSolver->getGoalNode()->setRow(1);
@@ -61,13 +62,14 @@ int main(int argc, char **argv) {
     delete pathSolver;
     delete exploredPositions;
     delete solution;
+    delete_env(env, ROWS, COLS);
 
 }
 
 void readEnvStdin(Env env) {
-    for (int i = 0; i < ENV_DIM; i++)
-        for (int j = 0; j < ENV_DIM; j++)
-            std::cin >> env[i][j];
+    // Read env line by line
+    for (int i = 0; i < ROWS; i++)
+        std::cin.getline(env[i], COLS + 1);
 }
 
 void printEnvStdout(Env env, NodeList *solution) {
@@ -89,8 +91,8 @@ void printEnvStdout(Env env, NodeList *solution) {
     }
 
     // Print env file
-    for (int i = 0; i < ENV_DIM; i++) {
-        for (int j = 0; j < ENV_DIM; j++)
+    for (int i = 0; i < ROWS; i++) {
+        for (int j = 0; j < COLS; j++)
             std::cout << env[i][j];
         std::cout << std::endl;
     }
