@@ -26,10 +26,11 @@ int main(int argc, char **argv) {
     // AS YOU WORK ON MILESTONE 2. YOU CAN UPDATE THEM YOURSELF
     // AS YOU GO ALONG.
     // COMMENT THESE OUT BEFORE YOU SUBMIT!!!
-    std::cout << "TESTING - COMMENT THE OUT TESTING BEFORE YOU SUBMIT!!!" << std::endl;
-    testNode();
-    testNodeList();
-    std::cout << "DONE TESTING" << std::endl << std::endl;
+
+    //    std::cout << "TESTING - COMMENT THE OUT TESTING BEFORE YOU SUBMIT!!!" << std::endl;
+    //    testNode();
+    //    testNodeList();
+    //    std::cout << "DONE TESTING" << std::endl << std::endl;
 
     // Load Environment
     Env env{};
@@ -64,14 +65,14 @@ int main(int argc, char **argv) {
 }
 
 void readEnvStdin(Env env) {
-    for (int i = 0; i < ENV_DIM; i++) {
+    for (int i = 0; i < ENV_DIM; i++)
         for (int j = 0; j < ENV_DIM; j++)
             std::cin >> env[i][j];
-    }
 }
 
 void printEnvStdout(Env env, NodeList *solution) {
 
+    // Update env file with navigation path
     for (int i = 0; i < solution->getLength() - 2; i++) {
         Node *p = solution->getNode(i);
         Node *c = solution->getNode(i + 1);
@@ -87,6 +88,7 @@ void printEnvStdout(Env env, NodeList *solution) {
         }
     }
 
+    // Print env file
     for (int i = 0; i < ENV_DIM; i++) {
         for (int j = 0; j < ENV_DIM; j++)
             std::cout << env[i][j];

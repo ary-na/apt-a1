@@ -5,8 +5,8 @@
 PathSolver::PathSolver() {
     std::cout << "-- Inside PathSolver Constructor --" << std::endl;
     this->nodes_explored = nullptr;
-    this->start_node = new Node(0,0,0);
-    this->goal_node = new Node(0,0,0);
+    this->start_node = new Node(0, 0, 0);
+    this->goal_node = new Node(0, 0, 0);
 }
 
 PathSolver::~PathSolver() {
@@ -45,19 +45,6 @@ void PathSolver::forwardSearch(Env env) {
             }
     } while ((!(p->getCol() == this->goal_node->getCol() && p->getRow() == this->goal_node->getRow()))); // Loop condition: selected Node does not equal to goal Node
     this->nodes_explored = new NodeList(*C);
-
-    // To be deleted
-    for (int i = 0; i < P->getLength(); i++)
-        std::cout << P->getNode(i)->getRow() << " | " << P->getNode(i)->getCol() << " ---- "
-                  << P->getNode(i)->getDistanceTraveled() << " ---- "
-                  << P->getNode(i)->getEstimatedDist2Goal(P->getNode(P->getLength() - 1)) << std::endl;
-
-    std::cout << "---------------------------------------" << std::endl;
-
-    for (int i = 0; i < C->getLength(); i++)
-        std::cout << C->getNode(i)->getRow() << " | " << C->getNode(i)->getCol() << " ---- "
-                  << C->getNode(i)->getDistanceTraveled() << " ---- "
-                  << C->getNode(i)->getEstimatedDist2Goal(C->getNode(C->getLength() - 1)) << std::endl;
 }
 
 NodeList *PathSolver::getNodesExplored() {
@@ -69,9 +56,6 @@ NodeList *PathSolver::getPath(Env env) {
     // Initialise Closed and Path lists
     NodeList *C = this->getNodesExplored();
     auto *P = new NodeList;
-
-    // Start Node
-    Node *startNode = C->getNode(0);
 
     // Selected Node (Initially Goal Node)
     Node *p = C->getNode(C->getLength() - 1);
@@ -89,23 +73,15 @@ NodeList *PathSolver::getPath(Env env) {
             if (env[reachablePositions(p)[j]][reachablePositions(p)[j + 1]] != SYMBOL_WALL)
                 for (int i = C->getLength() - 1; i >= 0; i--)
                     // Condition: Reachable Node exists in closed List AND has dist_travelled one less than selected Node
-                    if (C->getNode(i)->getRow() == reachablePositions(p)[j] &&
-                        C->getNode(i)->getCol() == reachablePositions(p)[j + 1] &&
+                    if (C->getNode(i)->getRow() == reachablePositions(p)[j] && C->getNode(i)->getCol() == reachablePositions(p)[j + 1] &&
                         C->getNode(i)->getDistanceTraveled() == L - 1 && !nodeExists(P, C->getNode(i))) {
                         // Add p to Path list
-                        P->addElement(new Node(C->getNode(i)->getRow(), C->getNode(i)->getCol(),
-                                               C->getNode(i)->getDistanceTraveled()));
+                        P->addElement(new Node(C->getNode(i)->getRow(), C->getNode(i)->getCol(), C->getNode(i)->getDistanceTraveled()));
                         // Update distance travelled and selected Node
                         L = C->getNode(i)->getDistanceTraveled();
                         p = C->getNode(i);
                     }
-    } while (p != startNode); // Loop condition: selected Node does not equal to start Node
-
-    // To be deleted
-    for (int i = 0; i < P->getLength(); i++)
-        std::cout << P->getNode(i)->getRow() << " | " << P->getNode(i)->getCol() << " ---- "
-                  << P->getNode(i)->getDistanceTraveled() << " ---- "
-                  << P->getNode(i)->getEstimatedDist2Goal(P->getNode(P->getLength() - 1)) << std::endl;
+    } while (p != C->getNode(0)); // Loop condition: selected Node does not equal to start Node
     return P;
 }
 
