@@ -12,11 +12,15 @@ Chaudhary, S. (2022). Check if an Array Contains an Element in C++. [online] Del
 
 CLion Help. (n.d.). Set up a Git repository | CLion. [online] Available at: https://www.jetbrains.com/help/clion/set-up-a-git-repository.html#ignore-files [Accessed 31 Dec. 2022].
 
+CodeSpeedy. (2021). How to use cin.ignore in C++ to clear input buffer. [online] Available at: https://www.codespeedy.com/how-to-use-cin-ignore-in-cpp-to-clear-input-buffer/.
+
 devenum.com. (2022). How To Insert An Element In Array In C++ - DevEnum.com. [online] Available at: https://devenum.com/how-to-insert-an-element-in-array-in-c/ [Accessed 31 Dec. 2022].
 
 EDUCBA. (2020). C++ absolute value | How Absolute Value works in C++? [online] Available at: https://www.educba.com/c-plus-plus-absolute-value/ [Accessed 31 Dec. 2022].
 
 freeCodeCamp.org. (2022). C++ Vector – How to Initialize a Vector in a Constructor in C++. [online] Available at: https://www.freecodecamp.org/news/cpp-vector-how-to-initialize-a-vector-in-a-constructor/ [Accessed 31 Dec. 2022].
+
+GeeksforGeeks. (2020). How to declare a 2D array dynamically in C++ using new operator. [online] Available at: https://www.geeksforgeeks.org/how-to-declare-a-2d-array-dynamically-in-c-using-new-operator/.
 
 GeeksforGeeks. (2018). Program error signals. [online] Available at: https://www.geeksforgeeks.org/program-error-signals/.
 
@@ -42,7 +46,11 @@ Stack Overflow. (n.d.). cmake - CLion - command line program arguments. [online]
 
 Stack Overflow. (n.d.). Directory structure for a C++ library. [online] Available at: https://stackoverflow.com/questions/1398445/directory-structure-for-a-c-library [Accessed 31 Dec. 2022].
 
+Stack Overflow. (n.d.). c++ - cin.get() and omitting newline char. [online] Available at: https://stackoverflow.com/questions/2012268/cin-get-and-omitting-newline-char [Accessed 31 Dec. 2022].
+
 Stack Overflow. (n.d.). c++ - IntelliJ - CLion : What should I do to use input text file? [online] Available at: https://stackoverflow.com/questions/42813641/intellij-clion-what-should-i-do-to-use-input-text-file [Accessed 31 Dec. 2022].
+
+Stack Overflow. (n.d.). c++ - trying to understand std::cin.get(). [online] Available at: https://stackoverflow.com/questions/27081195/trying-to-understand-stdcin-get [Accessed 31 Dec. 2022].
 
 Stack Overflow. (n.d.). c - for loop for finding smallest element in an Array. [online] Available at: https://stackoverflow.com/questions/22898070/for-loop-for-finding-smallest-element-in-an-array [Accessed 31 Dec. 2022].
 
@@ -51,6 +59,8 @@ Stack Overflow. (n.d.). c - Where should I put CMakeLists.txt files? [online] Av
 Techie Delight. (2016). Find index of an element in an array in C++. [online] Available at: https://www.techiedelight.com/find-index-element-array-cpp/ [Accessed 31 Dec. 2022].
 
 w3codeworld.com. (n.d.). C++ Program to Find Largest and Smallest Number in an Array using For loop - W3CODEWORLD. [online] Available at: https://w3codeworld.com/article/154/cplusplus-program-to-find-the-largest-and-smallest-element-in-an-array-by-using-for-loop [Accessed 31 Dec. 2022].
+
+www.java2s.com. (n.d.). Use cin.get() to read a string based on char array : char array «Data Types «C++ Tutorial. [online] Available at: http://www.java2s.com/Tutorial/Cpp/0040__Data-Types/Usecingettoreadastringbasedonchararray.htm [Accessed 31 Dec. 2022].
 
 www.tutorialspoint.com. (n.d.). C++ program to find the smallest element among three elements. [online] Available at: https://www.tutorialspoint.com/cplusplus-program-to-find-the-smallest-element-among-three-elements.
 
