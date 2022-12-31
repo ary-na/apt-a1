@@ -4,7 +4,7 @@
 #include <cmath>
 
 
-#define ENV_DIM                     20
+#define ENV_DIM                     60
 #define NODE_LIST_ARRAY_MAX_SIZE    (4*(ENV_DIM * ENV_DIM))
 
 // A 2D array to represent the environment or observations

@@ -41,10 +41,10 @@ int main(int argc, char **argv) {
 
     // Set start and goal location Nodes
     // To test a larger env modify ENV_DIM in Types.h file
-    pathSolver->getStartNode()->setRow(1);
-    pathSolver->getStartNode()->setCol(9);
-    pathSolver->getGoalNode()->setRow(14);
-    pathSolver->getGoalNode()->setCol(16);
+    pathSolver->getStartNode()->setRow(57);
+    pathSolver->getStartNode()->setCol(54);
+    pathSolver->getGoalNode()->setRow(1);
+    pathSolver->getGoalNode()->setCol(3);
 
     pathSolver->forwardSearch(env);
 
