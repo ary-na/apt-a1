@@ -33,8 +33,16 @@ public:
     /* YOU MAY ADD YOUR MODIFICATIONS HERE       */
     /*                                           */
 
+    // Get start and goal Nodes
+    Node *getStartNode() const;
+
+    Node *getGoalNode() const;
+
     // Search Node Lists for existing nodes
     static bool nodeExists(NodeList *nodeList, Node *node);
+
+    // Return an array of reachable positions from selected Node
+    static int *reachablePositions(Node *node);
 
 private:
     /*                                           */
@@ -48,6 +56,8 @@ private:
     /* YOU MAY ADD YOUR MODIFICATIONS HERE       */
     /*                                           */
 
+    Node *start_node;
+    Node *goal_node;
 };
 
 

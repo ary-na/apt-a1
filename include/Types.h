@@ -4,7 +4,7 @@
 #include <cmath>
 
 
-#define ENV_DIM                     40
+#define ENV_DIM                     20
 #define NODE_LIST_ARRAY_MAX_SIZE    (4*(ENV_DIM * ENV_DIM))
 
 // A 2D array to represent the environment or observations
@@ -15,5 +15,11 @@ typedef char Env[ENV_DIM][ENV_DIM];
 #define SYMBOL_EMPTY    '.'
 #define SYMBOL_GOAL     'G'
 #define SYMBOL_START    'S'
+
+#define SYMBOL_MOVE_RIGHT   '>'
+#define SYMBOL_MOVE_LEFT   '<'
+#define SYMBOL_MOVE_UP   '^'
+#define SYMBOL_MOVE_DOWN   'v'
+
 
 #endif // COSC_ASSIGN_ONE_TYPES

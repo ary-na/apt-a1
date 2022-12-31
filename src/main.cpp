@@ -35,27 +35,16 @@ int main(int argc, char **argv) {
     Env env{};
     readEnvStdin(env);
 
-
-//    int startLocationCol, startLocationRow, goalLocationCol, goalLocationRow;
-//
-//    // Get input for Start location
-//    std::cout << "Enter robot's start location column number:" << std::endl;
-//    std::cin >> startLocationCol;
-//
-//    std::cout << "Enter robot's start location row number:" << std::endl;
-//    std::cin >> startLocationRow;
-//
-//    // Get input for Goal location
-//    std::cout << "Enter robot's goal location column number:" << std::endl;
-//    std::cin >> goalLocationCol;
-//
-//    std::cout << "Enter robot's goal location row number:" << std::endl;
-//    std::cin >> goalLocationRow;
-
-
     // Solve using forwardSearch
     // THIS WILL ONLY WORK IF YOU'VE FINISHED MILESTONE 2
     auto *pathSolver = new PathSolver();
+
+    // Set start and goal location Nodes
+    // To test a larger env modify ENV_DIM in Types.h file
+    pathSolver->getStartNode()->setRow(1);
+    pathSolver->getStartNode()->setCol(9);
+    pathSolver->getGoalNode()->setRow(14);
+    pathSolver->getGoalNode()->setCol(16);
 
     pathSolver->forwardSearch(env);
 
@@ -79,15 +68,30 @@ void readEnvStdin(Env env) {
         for (int j = 0; j < ENV_DIM; j++)
             std::cin >> env[i][j];
     }
+}
+
+void printEnvStdout(Env env, NodeList *solution) {
+
+    for (int i = 0; i < solution->getLength() - 2; i++) {
+        Node *p = solution->getNode(i);
+        Node *c = solution->getNode(i + 1);
+
+        if (p->getRow() + 1 == c->getRow() && p->getCol() == c->getCol()) {
+            env[c->getRow()][c->getCol()] = SYMBOL_MOVE_UP;
+        } else if (p->getRow() - 1 == c->getRow() && p->getCol() == c->getCol()) {
+            env[c->getRow()][c->getCol()] = SYMBOL_MOVE_DOWN;
+        } else if (p->getRow() == c->getRow() && p->getCol() + 1 == c->getCol()) {
+            env[c->getRow()][c->getCol()] = SYMBOL_MOVE_LEFT;
+        } else if (p->getRow() == c->getRow() && p->getCol() - 1 == c->getCol()) {
+            env[c->getRow()][c->getCol()] = SYMBOL_MOVE_RIGHT;
+        }
+    }
+
     for (int i = 0; i < ENV_DIM; i++) {
         for (int j = 0; j < ENV_DIM; j++)
             std::cout << env[i][j];
         std::cout << std::endl;
     }
-}
-
-void printEnvStdout(Env env, NodeList *solution) {
-
 }
 
 void testNode() {
@@ -112,7 +116,7 @@ void testNodeList() {
     std::cout << "TESTING NodeList" << std::endl;
 
     // Make a simple NodeList, should be empty size
-    NodeList *nodeList = new NodeList();
+    auto *nodeList = new NodeList();
     std::cout << "NodeList size: " << nodeList->getLength() << std::endl;
 
     // Add a Node to the NodeList, print size

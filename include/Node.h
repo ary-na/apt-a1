@@ -32,6 +32,9 @@ public:
     /* YOU MAY ADD YOUR MODIFICATIONS HERE       */
     /*                                           */
 
+    void setRow(int row);
+
+    void setCol(int col);
 
 private:
     /*                                           */
